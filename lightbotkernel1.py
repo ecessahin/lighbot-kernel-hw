@@ -98,29 +98,20 @@ def jump():
    n, m = terrain.shape
 
    if facing_direction == "right":
-    if position[1]+1 < m:
+    if position[1]+1 < m and heights[position[0], position[1]+1]== (heights[position[0], position[1]]+1):
      position= (position[0], position[1]+1)
-    else:
-     #position stays the same.
-     print(f"can't go any more right from that position: {position}")
 
    elif facing_direction == "left":
-    if position[1]-1 >= 0:
+    if position[1]-1 >= 0 and heights[position[0], position[1]-1]== (heights[position[0], position[1]]+1):
      position= (position[0], position[1]-1)
-    else:
-     print(f"can't go any more left from that position: {position}")
 
    elif facing_direction == "up":
-    if position[0]-1 >= 0 :
+    if position[0]-1 >= 0 and heights[position[0]-1, position[1]]== (heights[position[0], position[1]]+1):
      position= (position[0]-1, position[1])
-    else:
-      print(f"can't go any more up from that position: {position}")
-
+  
    elif facing_direction == "down":
-    if position[0]+1 < n :
+    if position[0]+1 < n and heights[position[0]+1, position[1]]== (heights[position[0], position[1]]+1):
      position= (position[0]+1, position[1])
-    else:
-      print (f"can't go any more down from that position: {position}")
 
    return position
 
